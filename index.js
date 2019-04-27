@@ -32,7 +32,7 @@ async function run() {
 }
 
 (async function(){
-    var files = await imageList()
+    var files = await imageList(20)
     console.log("HERE:", files)
 }())
 

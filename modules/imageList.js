@@ -1,6 +1,8 @@
 var fs = require('fs');
 var path = require('path');
 
+var log = require('../utils/logger');
+
 function formatNameToTitle(list){
     return list.map(function(fileName){
         const noFileExt = fileName.replace(/\.[^/.]+$/, "")
@@ -9,7 +11,15 @@ function formatNameToTitle(list){
     })
 }
 
-module.exports = function(){
-    var directoryPath = path.resolve(__dirname, '../config/images');
-    return formatNameToTitle(fs.readdirSync( directoryPath))
+module.exports = function(price){
+
+    var directoryPath = path.resolve(__dirname, `../config/images/${price}`);
+    
+    try{
+        return formatNameToTitle(fs.readdirSync(directoryPath))
+    }catch(e){
+        log.error(e.message)
+        process.exit()
+    }
+
 }
