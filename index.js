@@ -6,7 +6,6 @@ var Nightmare = require('nightmare'),
 const fs = require('fs');
 require('dotenv').config()
 
-var ads = require('./config/ads');
 var post = require('./modules/post');
 var login = require('./modules/login');
 var checkLogin = require('./modules/checkLogin');
