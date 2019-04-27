@@ -28,10 +28,10 @@ module.exports = async function(imageFolder){
     var directoryPath = path.resolve(__dirname, fullPath);
     
     try{
-        var location = fs.readdirSync(directoryPath)
+        var sublocation = fs.readdirSync(directoryPath)
         
         // we're assuming that if the first item is a directory they all are.
-        if(await isDirectory(`${directoryPath}/${location[0]}`)){
+        if(await isDirectory(`${directoryPath}/${sublocation[0]}`)){
             console.log('here')
             //TODO:
             process.exit()
