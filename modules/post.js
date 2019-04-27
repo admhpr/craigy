@@ -1,4 +1,4 @@
 module.exports =
-    function () {
-        console.log('post')
+    function (dto) {
+        console.log('post', dto)
     }
