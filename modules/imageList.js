@@ -20,7 +20,7 @@ module.exports = function(imageFolder){
     try{
         var location = fs.readdirSync(directoryPath)
         console.log(location)
-        fs.stat(location[0], function(err, stat){
+        fs.stat(directoryPath, function(err, stat){
             console.log(stat)
             console.log(stat, stat.isDirectory())
         })
