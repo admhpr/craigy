@@ -38,7 +38,7 @@ async function run() {
 
 async function main({city, price, imageFolder = false}) {
     console.log(city, price, imageFolder)
-    log.out(`Login succesful, Running main function..`)
+    log.out(`Login successful, Running main function..`)
     var postValues = JSON.parse(fs.readFileSync('./config/post.json'));
     var files = await imageList(imageFolder)
     for (let file of files) {
