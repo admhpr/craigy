@@ -1,17 +1,17 @@
 var chalk = require('chalk');
 
 const log = {
-    _log: function (input) {
-        return console.log(input)
-    },
-    out: function (str) {
-        this._log(chalk.green(str))
-    },
-    error: function (str) {
-        this._log(chalk.red(str))
-    },
-    notify: function (str) {
-        this._log(chalk.blue(str))
+    out: wrap(chalk.green),
+    error: wrap(chalk.red),
+    notify: wrap(chalk.blue)
+}
+
+function logIt (input) {
+    console.log(input)
+}
+function wrap(fn){
+    return function(str){
+        logIt(fn(str))
     }
 }
 
