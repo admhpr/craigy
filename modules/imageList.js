@@ -12,7 +12,10 @@ function formatNameToTitle(list){
 
 function isDirectory(path){
     return new Promise(function(resolve, reject){
-        fs.stat(path, function(err, stat){
+        fs.stat(path, function(err, stat){          
+            if(err){
+                reject()
+            }
             resolve(stat.isDirectory())
         })
     })
