@@ -31,8 +31,9 @@ async function run() {
     }
 }
 
-(function(){
-    console.log(imageList())
+(async function(){
+    var files = await imageList()
+    console.log(files)
 }())
 
 function main(ads) {
