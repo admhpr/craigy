@@ -11,7 +11,7 @@ function formatNameToTitle(list = []){
 }
 
 function processFileList(fileList = []){
-    console.log(fileList)
+    return formatNameToTitle(fileList)
 }
 
 function isDirectory(path){
@@ -31,16 +31,17 @@ module.exports = async function(imageFolder){
     var directoryPath = path.resolve(__dirname, fullPath);
     
     try{
-        var sublocation = fs.readdirSync(directoryPath)
+        var sublocations = fs.readdirSync(directoryPath)
         
         // we're assuming that if the first item is a directory they all are.
-        if(await isDirectory(`${directoryPath}/${sublocation[0]}`)){
+        if(await isDirectory(`${directoryPath}/${sublocations[0]}`)){
             console.log('here')
             log.out(`Iterating over sub directories...`)
-            for(dir of sublocation){
-                //TODO:
-                var fileList = fs.readdirSync(`${directoryPath}/${dir}`)
-                processFileList(fileList)
+            return function* fileList(){
+                for(let dir of sublocations){
+                    var fileList = processFileList(fs.readdirSync(`${directoryPath}/${dir}`))
+                    yield fileList;
+                }
             }
             process.exit()
         }

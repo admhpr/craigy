@@ -41,8 +41,8 @@ async function main({city, price, imageFolder = false}) {
     log.out(`Login successful, Running main function..`)
     var postValues = JSON.parse(fs.readFileSync('./config/post.json'));
     var files = await imageList(imageFolder)
-    for (let file of files) {
-        console.log(file)
+    for (let file of files()) {
+        console.log('here', file)
         // post({...postValues, image: file})
     }
 }
