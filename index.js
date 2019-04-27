@@ -1,6 +1,8 @@
 var Nightmare = require('nightmare'),
     nightmare = Nightmare();
+
 require('dotenv').config()
+
 var ads = require('./config/ads');
 var post = require('./modules/post');
 var login = require('./modules/login');
@@ -12,19 +14,25 @@ async function run() {
     var loggedIn = await checkLogin();
     switch (loggedIn) {
         case true:
-            console.log('Login successful')
+            console.log(`Login successful`)
+            nightmare.end()
             main(ads)
             break;
         default:
-            console.log('Login check failed, attemping login');
+            console.log(`Not logged in, initiate login procedure`);
             loggedIn = await login()
+            nightmare.end()
+            loggedIn ? main(ads) : console.error(`Unable to login please check credientials in .env file`)
     }
 }
 
 
-function main() {
+function main(ads) {
     console.log(`Running main function`)
+    for (ad of ads) {
+        post(ad)
+        nightmare.end()
+    }
 }
-
 
 run()

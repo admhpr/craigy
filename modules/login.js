@@ -4,14 +4,12 @@ const {
     SHOW_BROWSER,
 } = process.env
 var Nightmare = require('nightmare'),
-    nightmare = Nightmare({
-        show: SHOW_BROWSER
-    });
+    nightmare = Nightmare();
 
 module.exports =
     async function () {
         var loggedIn;
-        console.log(`Attemping login...`)
+        console.log(`Attempting login...`)
         nightmare.goto(`https://accounts.craigslist.org/login`)
             .wait(1000)
             .insert('#inputEmailHandle', USER_EMAIL)
