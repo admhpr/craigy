@@ -1,6 +1,9 @@
+"use strict";
+
 var Nightmare = require('nightmare'),
     nightmare = Nightmare();
 
+const fs = require('fs');
 require('dotenv').config()
 
 var ads = require('./config/ads');
@@ -26,10 +29,11 @@ async function run() {
     }
 }
 
-
 function main(ads) {
-    console.log(`Running main function`)
-    for (ad of ads) {
+    console.log(`Running main function..`)
+    var ads = JSON.parse(fs.readFileSync('./config/ads.json'));
+    for (let ad of ads) {
+        console.log(ad)
         post(ad)
         nightmare.end()
     }
