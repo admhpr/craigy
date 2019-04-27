@@ -4,13 +4,14 @@ var Nightmare = require('nightmare'),
     nightmare = Nightmare();
 
 var fs = require('fs');
-var path = require('path');
+
 require('dotenv').config()
 
 var post = require('./modules/post');
 var login = require('./modules/login');
 var checkLogin = require('./modules/checkLogin');
 var log = require('./utils/logger');
+var imageList = require('./modules/imageList')
 
 const url = ""
 
@@ -31,7 +32,7 @@ async function run() {
 }
 
 (function(){
-    
+    console.log(imageList())
 }())
 
 function main(ads) {
