@@ -3,17 +3,24 @@ var path = require('path');
 
 var log = require('../utils/logger');
 
-function formatNameToTitle(list = []){
+/**
+ * 
+ * @param {string} path path to image
+ * @param {string} list file name list
+ * @returns {Object} formats image name as title and return full path to image
+ */
+function formatNameToTitle(path, list = []){
     return list.map(function(fileName){
         const noFileExt = fileName.replace(/\.[^/.]+$/, "")
-        return noFileExt.replace(/-|_/g," ");
+        return { image: `${path}/${fileName}`, title: noFileExt.replace(/-|_/g," ")};
     })
 }
 
-function processFileList(fileList = []){
-    return formatNameToTitle(fileList)
-}
-
+/**
+ * 
+ * @param {string} path to location
+ * @returns {Promise} resolves to true if locaton is a directory 
+ */
 function isDirectory(path){
     return new Promise(function(resolve, reject){
         fs.stat(path, function(err, stat){          
@@ -39,7 +46,8 @@ module.exports = async function(imageFolder){
             log.out(`Iterating over sub directories...`)
             return function* fileList(){
                 for(let dir of sublocations){
-                    var fileList = processFileList(fs.readdirSync(`${directoryPath}/${dir}`))
+                    var path = `${directoryPath}/${dir}`;
+                    var fileList = formatNameToTitle(path, fs.readdirSync(path))
                     yield fileList;
                 }
             }
