@@ -21,7 +21,7 @@ async function run() {
             main(ads)
             break;
         default:
-            console.log(`Not logged in, initiate login procedure`);
+            console.log(`Not logged in, initiating login procedure`);
             loggedIn = await login()
             nightmare.end()
             loggedIn ? main(ads) : console.error(`Unable to login please check credientials in .env file`)

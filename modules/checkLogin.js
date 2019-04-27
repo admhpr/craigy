@@ -10,13 +10,13 @@ var Nightmare = require('nightmare'),
 
 module.exports =
     async function () {
-        var loggedIn;
-        nightmare.goto(`https://accounts.craigslist.org/login`)
+        var loggedIn = await nightmare.goto(`https://accounts.craigslist.org/login`)
             .wait(1000)
             .title()
             .end()
             .then(function (result) {
                 loggedIn = (result === 'craigslist account')
+                return loggedIn
             })
         return loggedIn
     }
