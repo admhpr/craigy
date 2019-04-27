@@ -28,9 +28,15 @@ ${chalk.bgBlack('npm run start')} ${chalk.green('city')} ${chalk.yellow('price')
     `)
 }
 module.exports = function(){
-    if(!process.argv[2]){
+    if(!process.argv[2] && !process.argv[3]){
         usage()
+        process.exit()
     }
+    
+    var city = String(process.argv[2])
+    var price = parseFloat(process.argv[3])
 
-    process.exit()
+    if(city.length && !Number.isNaN(price)){
+        return {price, city}
+    }
 }
