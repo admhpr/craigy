@@ -4,7 +4,7 @@ const {
     SHOW_BROWSER,
 } = process.env
 var Nightmare = require('nightmare'),
-    nightmare = Nightmare();
+    nightmare = Nightmare({show: true});
 
 module.exports =
     async function () {
@@ -15,7 +15,7 @@ module.exports =
             .insert('#inputEmailHandle', USER_EMAIL)
             .insert('#inputPassword', USER_PASSWORD)
             .click('.login-box .accountform-btn')
-            .wait(1000)
+            .wait(4000)
             .title()
             .end()
         loggedIn = await nightmare.then(function (result) {
