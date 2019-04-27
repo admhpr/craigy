@@ -3,8 +3,9 @@ var path = require('path');
 
 function formatNameToTitle(list){
     return list.map(function(fileName){
-        console.log(fileName + "!")
-        return fileName + "!"
+        const noFileExt = fileName.replace(/\.[^/.]+$/, "")
+        console.log(noFileExt)
+        return noFileExt.replace(/-|_/g," ");
     })
 }
 
