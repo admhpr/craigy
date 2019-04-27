@@ -14,7 +14,7 @@ var log = require('./utils/logger');
 var imageList = require('./modules/imageList')
 
 const url = ""
-
+console.log(process.argv)
 async function run() {
     var loggedIn = await checkLogin();
     switch (loggedIn) {
