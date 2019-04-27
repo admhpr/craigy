@@ -3,7 +3,8 @@
 var Nightmare = require('nightmare'),
     nightmare = Nightmare();
 
-const fs = require('fs');
+var fs = require('fs');
+var path = require('path');
 require('dotenv').config()
 
 var post = require('./modules/post');
@@ -28,6 +29,10 @@ async function run() {
             loggedIn ? main() : log.error(`Unable to login please check credientials in .env file`)
     }
 }
+
+(function(){
+    
+}())
 
 function main(ads) {
     log.out(`Login succesful, Running main function..`)
