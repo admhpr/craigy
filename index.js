@@ -33,7 +33,7 @@ async function run() {
 
 (async function(){
     var files = await imageList()
-    console.log(files)
+    console.log("HERE:", files)
 }())
 
 function main(ads) {

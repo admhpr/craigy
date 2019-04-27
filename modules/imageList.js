@@ -1,11 +1,14 @@
 var fs = require('fs');
 var path = require('path');
 
-function formatNameToTitle(){}
+function formatNameToTitle(list){
+    return list.map(function(fileName){
+        console.log(fileName + "!")
+        return fileName + "!"
+    })
+}
 
 module.exports = function(){
     var directoryPath = path.resolve(__dirname, '../config/images');
-    return fs.readdirSync( directoryPath, function(err, files){
-        return files
-    })
+    return formatNameToTitle(fs.readdirSync( directoryPath))
 }
