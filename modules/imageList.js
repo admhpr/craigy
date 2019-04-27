@@ -14,7 +14,7 @@ function isDirectory(path){
     return new Promise(function(resolve, reject){
         fs.stat(path, function(err, stat){          
             if(err){
-                reject()
+                reject(err)
             }
             resolve(stat.isDirectory())
         })
