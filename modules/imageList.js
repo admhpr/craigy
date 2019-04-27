@@ -1,6 +1,7 @@
 var fs = require('fs');
 var path = require('path');
 
+// internal modules
 var log = require('../utils/logger');
 
 /**
@@ -34,24 +35,25 @@ function isDirectory(path){
 
 module.exports = async function(imageFolder){
     var relativePath = "../config/images";
-    var fullPath = imageFolder ? `${relativePath}/${imageFolder}` : `${relativePath}` 
-    var directoryPath = path.resolve(__dirname, fullPath);
-    
+    var directoryPath = imageFolder ? `${relativePath}/${imageFolder}` : `${relativePath}`
+    var absolutePath = path.resolve(__dirname, directoryPath);
+
     try{
-        var sublocations = fs.readdirSync(directoryPath)
-        
+        var sublocations = fs.readdirSync(absolutePath)
         // we're assuming that if the first item is a directory they all are.
-        if(await isDirectory(`${directoryPath}/${sublocations[0]}`)){
-            console.log('here')
+        if(!imageFolder && await isDirectory(`${absolutePath}/${sublocations[0]}`)){
             log.out(`Iterating over sub directories...`)
+            // yields a file list for each dir with the images folder
             return function* fileList(){
                 for(let dir of sublocations){
-                    var path = `${directoryPath}/${dir}`;
-                    var fileList = formatNameToTitle(path, fs.readdirSync(path))
+                    var dirPath = `${absolutePath}/${dir}`;
+                    var fileList = formatNameToTitle(dirPath, fs.readdirSync(dirPath))
                     yield fileList;
                 }
             }
-            process.exit()
+        }else{
+            log.out(`Getting files from directory...`)
+            return () => [formatNameToTitle(absolutePath, fs.readdirSync(absolutePath))]
         }
     }catch(e){
         log.error(e.message)

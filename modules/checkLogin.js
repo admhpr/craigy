@@ -1,12 +1,5 @@
-const {
-    USER_EMAIL,
-    USER_PASSWORD,
-    SHOW_BROWSER,
-} = process.env
 var Nightmare = require('nightmare'),
-    nightmare = Nightmare({
-        show: SHOW_BROWSER
-    });
+    nightmare = Nightmare();
 
 module.exports =
     async function () {

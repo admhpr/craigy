@@ -1,20 +1,20 @@
 "use strict";
 
 // libs
+var fs = require('fs');
 var Nightmare = require('nightmare'),
     nightmare = Nightmare();
-var fs = require('fs');
 
 // setup
 require('dotenv').config();
 
-// local modules
-var post = require('./modules/post');
-var login = require('./modules/login');
+// internal modules
 var checkLogin = require('./modules/checkLogin');
-var log = require('./utils/logger');
-var processArgs = require('./modules/processArgs');
 var imageList = require('./modules/imageList');
+var log = require('./utils/logger');
+var login = require('./modules/login');
+var post = require('./modules/post');
+var processArgs = require('./modules/processArgs');
 
 // init
 async function run() {
@@ -44,8 +44,8 @@ async function main({city, price, imageFolder = false}) {
     log.out(`Login successful, Running main function..`)
     var postValues = JSON.parse(fs.readFileSync('./config/post.json'));
     var files = await imageList(imageFolder)
-    for (let filelist of files()) {
-        console.log('here', filelist)
+    for (let fileList of files()) {
+        console.log("FILELIST", fileList)
         // post({...postValues, image: file})
     }
 }
