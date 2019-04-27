@@ -5,17 +5,17 @@ var Nightmare = require('nightmare'),
 
 var fs = require('fs');
 
-require('dotenv').config()
+require('dotenv').config();
 
 var post = require('./modules/post');
 var login = require('./modules/login');
 var checkLogin = require('./modules/checkLogin');
 var log = require('./utils/logger');
-var imageList = require('./modules/imageList')
+var processArgs = require('./modules/processArgs');
+var imageList = require('./modules/imageList');
 
-const url = ""
-console.log(process.argv)
 async function run() {
+    processArgs()
     var loggedIn = await checkLogin();
     switch (loggedIn) {
         case true:
@@ -31,10 +31,10 @@ async function run() {
     }
 }
 
-(async function(){
-    var files = await imageList(20)
-    console.log("HERE:", files)
-}())
+// (async function(){
+//     var files = await imageList(20)
+//     console.log("HERE:", files)
+// }())
 
 function main(ads) {
     log.out(`Login succesful, Running main function..`)
