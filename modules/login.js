@@ -3,14 +3,19 @@ var Nightmare = require('nightmare'),
         show: true
     });
 
+const {
+    USER_EMAIL,
+    USER_PASSWORD
+} = process.env
+
 module.exports =
     async function () {
         var loggedIn;
         console.log(`Attemping login...`)
         nightmare.goto(`https://accounts.craigslist.org/login`)
             .wait(2000)
-            .insert('#inputEmailHandle', 'email@email.com')
-            .insert('#inputPassword', 'password')
+            .insert('#inputEmailHandle', USER_EMAIL)
+            .insert('#inputPassword', USER_PASSWORD)
             .click('.login-box .accountform-btn')
             .wait(200)
             .title()

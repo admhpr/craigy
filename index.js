@@ -1,5 +1,6 @@
 var Nightmare = require('nightmare'),
     nightmare = Nightmare();
+require('dotenv').config()
 var ads = require('./config/ads');
 var post = require('./modules/post');
 var login = require('./modules/login');
