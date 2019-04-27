@@ -3,6 +3,7 @@ var path = require('path');
 
 // internal modules
 var log = require('../utils/logger');
+var format = require('../utils/format');
 
 /**
  * 
@@ -13,7 +14,7 @@ var log = require('../utils/logger');
 function formatNameToTitle(path, list = []){
     return list.map(function(fileName){
         const noFileExt = fileName.replace(/\.[^/.]+$/, "")
-        return { image: `${path}/${fileName}`, title: noFileExt.replace(/-|_/g," ")};
+        return { image: `${path}/${fileName}`, title: format.capitalFirstLetter(noFileExt.replace(/-|_/g," "))};
     })
 }
 
