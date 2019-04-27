@@ -36,13 +36,14 @@ async function run() {
 //     console.log("HERE:", files)
 // }())
 
-function main({city, price, imageFolder = false}) {
+async function main({city, price, imageFolder = false}) {
+    console.log(city, price, imageFolder)
     log.out(`Login succesful, Running main function..`)
-    var ads = JSON.parse(fs.readFileSync('./config/post.json'));
-    for (let ad of ads) {
-        console.log(ad)
-        post(ad)
-        nightmare.end()
+    var postValues = JSON.parse(fs.readFileSync('./config/post.json'));
+    var files = await imageList(imageFolder)
+    for (let file of files) {
+        console.log(file)
+        // post({...postValues, image: file})
     }
 }
 

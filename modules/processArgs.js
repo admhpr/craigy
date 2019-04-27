@@ -5,12 +5,12 @@ function usage(){
             log.out(`
                     (_)            
         ___ _ __ __ _ _  __ _ _   _ 
-       / __| '__/ _\` | |/ _\` | | | |
+       / __| '__/ _\` | |/ _\` | | | 
       | (__| | | (_| | | (_| | |_| |
        \___|_|  \__,_|_|\__, |\__, |
                          __/ | __/ |
                         |___/ |___/
-        -----------------------------       
+    -----------------------------------       
         `)
         console.log(`
 Using Craigy couldn't be easier:
@@ -32,11 +32,19 @@ module.exports = function(){
         usage()
         process.exit()
     }
-    
+
     var city = String(process.argv[2])
-    var price = parseFloat(process.argv[3])
+    var price = parseFloat(Math.round(process.argv[3] * 100) / 100)
 
     if(city.length && !Number.isNaN(price)){
         return {price, city}
     }
+
+    log.error(`Incorrect argument types provided`)
+
+    setTimeout(function(){
+        usage()
+        process.exit()
+    },1000)
+
 }

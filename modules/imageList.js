@@ -6,17 +6,24 @@ var log = require('../utils/logger');
 function formatNameToTitle(list){
     return list.map(function(fileName){
         const noFileExt = fileName.replace(/\.[^/.]+$/, "")
-        console.log(noFileExt)
         return noFileExt.replace(/-|_/g," ");
     })
 }
 
-module.exports = function(price){
+module.exports = function(imageFolder){
 
-    var directoryPath = path.resolve(__dirname, `../config/images/${price}`);
+    var basePath = "../config/images";
+    var fullPath = imageFolder ? `${basePath}/${imageFolder}` : `${basePath}` 
+    console.log(fullPath)
+    var directoryPath = path.resolve(__dirname, fullPath);
     
     try{
-        return formatNameToTitle(fs.readdirSync(directoryPath))
+        var location = fs.readdirSync(directoryPath)
+        console.log(location)
+        fs.stat(location[0], function(err, stat){
+            console.log(stat)
+            console.log(stat, stat.isDirectory())
+        })
     }catch(e){
         log.error(e.message)
         process.exit()
