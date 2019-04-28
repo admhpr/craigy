@@ -37,7 +37,7 @@ module.exports = function(){
 
     var city = String(process.argv[2]);
     var price = parseFloat(Math.round(process.argv[3] * 100) / 100);
-    var imageFolder = typeof process.argv[4] !== "undefiend" ? process.argv[4] : false;
+    var imageFolder = typeof process.argv[4] !== "undefined" ? process.argv[4] : false;
     
     if(city.length && !Number.isNaN(price)){
         return {price, city, imageFolder}
