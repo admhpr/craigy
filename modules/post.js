@@ -12,7 +12,7 @@ module.exports = async function (dto) {
         var {city, title, price, body, image} = dto;
         console.log(image)
         var url = `https://${city}.craigslist.org`
-        
+        log.notify('Starting post creation')
         try{
             await nightmare.goto(url)
             .wait(2000)
@@ -49,9 +49,10 @@ module.exports = async function (dto) {
             .wait(3000)
             // cotinue
             .click('body > article > section > form > button')
+            //TODO:
             // publish
             .click('#publish_top > button')
-        
+            log.out('New post has been created')
             await nightmare.end()
         }catch(e){
             log.error(e.message)
