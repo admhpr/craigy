@@ -17,27 +17,25 @@ var post = require('./modules/post');
 var processArgs = require('./modules/processArgs');
 
 // init
+run().catch(console.error)
+
 async function run() {
     var args = processArgs()
     var loggedIn = await checkLogin();
     switch (loggedIn) {
         case true:
             log.out(`Login successful`)
-            nightmare.end()
-            main(ads)
+            await nightmare.end()
+            main(args)
             break;
         default:
             log.notify(`Not logged in, initiating login procedure`);
-            loggedIn = await login()
-            nightmare.end()
+            loggedIn = await login();
+            await nightmare.end();
+            nightmare = null;
             loggedIn ? main(args) : log.error(`Unable to login please check credientials in .env file`)
     }
 }
-
-// (async function(){
-//     var files = await imageList(20)
-//     console.log("HERE:", files)
-// }())
 
 async function main({city, price, imageFolder = false}) {
     console.log(city, price, imageFolder)
@@ -45,10 +43,9 @@ async function main({city, price, imageFolder = false}) {
     var postValues = JSON.parse(fs.readFileSync('./config/post.json'));
     var files = await imageList(imageFolder)
     for (let fileList of files()) {
-        fileList.forEach(function(fileInfo){
-            post({...fileInfo, ...{city, price}, ...postValues})
+        fileList.forEach(async function(fileInfo){
+            await post({...fileInfo, ...{city, price}, ...postValues})
         })
     }
 }
 
-run()

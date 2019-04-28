@@ -13,7 +13,7 @@ var format = require('../utils/format');
  */
 function formatNameToTitle(path, list = []){
     return list.map(function(fileName){
-        const noFileExt = fileName.replace(/\.[^/.]+$/, "")
+        var noFileExt = fileName.replace(/\.[^/.]+$/, "")
         return { image: `${path}/${fileName}`, title: format.capitalFirstLetter(noFileExt.replace(/-|_/g," "))};
     })
 }

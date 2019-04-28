@@ -2,11 +2,11 @@ const {
     USER_EMAIL,
     USER_PASSWORD,
 } = process.env
-var Nightmare = require('nightmare'),
-    nightmare = Nightmare();
 
-module.exports =
-    async function () {
+module.exports = async function () {
+        var Nightmare = require('nightmare'),
+        nightmare = Nightmare();
+        
         var loggedIn;
         console.log(`Attempting login...`)
         nightmare.goto(`https://accounts.craigslist.org/login`)

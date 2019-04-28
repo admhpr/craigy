@@ -24,6 +24,7 @@
   "dependencies": {
     "chalk": "^2.4.2",
     "dotenv": "^7.0.0",
-    "nightmare": "^3.0.1"
+    "nightmare": "^3.0.1",
+    "nightmare-upload": "^0.1.1"
   }
 }
