@@ -1,7 +1,7 @@
 {
   "name": "craigy",
   "version": "1.0.0",
-  "description": "A little program to auto list on craigslist",
+  "description": "A program to post items for sale to Craislist",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
