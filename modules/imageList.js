@@ -54,6 +54,7 @@ module.exports = async function(imageFolder){
             }
         }else{
             log.out(`Getting files from directory...`)
+            // returns an array so result can be comsumed as an iterable like a generator
             return () => [formatNameToTitle(absolutePath, fs.readdirSync(absolutePath))]
         }
     }catch(e){
