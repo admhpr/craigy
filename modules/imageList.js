@@ -44,7 +44,7 @@ module.exports = async function(imageFolder){
         // we're assuming that if the first item is a directory they all are.
         if(!imageFolder && await isDirectory(`${absolutePath}/${sublocations[0]}`)){
             log.out(`Iterating over sub directories...`)
-            // yields a file list for each dir with the images folder
+            // yields a file list for each dir within the images folder
             return function* fileList(){
                 for(let dir of sublocations){
                     var dirPath = `${absolutePath}/${dir}`;
