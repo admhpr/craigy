@@ -51,7 +51,7 @@ module.exports = async function (dto) {
             .click('body > article > section > form > button')
             //TODO:
             // publish
-            .click('#publish_top > button')
+            .click('form#publish_top button.button')
             log.out('New post has been created')
             await nightmare.end()
         }catch(e){

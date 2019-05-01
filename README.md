@@ -1,8 +1,4 @@
-# Craig
-
-```
-
-```
+# Craigy
 
 A program to bulk post items for sale to Craislist
 

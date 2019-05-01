@@ -5,7 +5,7 @@ const {
 
 module.exports = async function () {
         var Nightmare = require('nightmare'),
-        nightmare = Nightmare();
+        nightmare = Nightmare({show: true});
         
         var loggedIn;
         console.log(`Attempting login...`)
