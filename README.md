@@ -1,5 +1,9 @@
 # Craig
 
+```
+
+```
+
 A program to bulk post items for sale to Craislist
 
 ## Getting Started
@@ -15,6 +19,9 @@ change into the cloned directory:
 ```bash
 cd craigy
 ```
+## Prerequisites
+
+[Node](https://nodejs.org/en/) ^v8.9
 
 install dependencies, see [dependencies](#built-with):
 
@@ -78,7 +85,6 @@ npm run start <city> <price> <imageFolder?>
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-## Acknowledgments
 
 
 
