@@ -72,10 +72,10 @@ npm run start <city> <price> <imageFolder?>
 
 ## Built With
 
-[chalk](https://www.npmjs.com/package/chalk)
-[dotenv](https://www.npmjs.com/package/dotenv)
-[nightmare](https://www.npmjs.com/package/nightmare)
-[nightmare-upload](https://www.npmjs.com/package/nightmare-upload)
+* [chalk](https://www.npmjs.com/package/chalk)
+* [dotenv](https://www.npmjs.com/package/dotenv)
+* [nightmare](https://www.npmjs.com/package/nightmare)
+* [nightmare-upload](https://www.npmjs.com/package/nightmare-upload)
 
 ## License
 
