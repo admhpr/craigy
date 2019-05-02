@@ -1,4 +1,4 @@
-# Craigy (In Development)
+# Craigy (in development)
 
 A program to bulk post items for sale to Craislist
 
