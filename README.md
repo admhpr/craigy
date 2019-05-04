@@ -29,7 +29,7 @@ npm i
 
 Using Craigy couldn't be easier.
 
-Add your credientials to a .env file:
+Move the .env-example to a .env file:
 
 ```bash
 mv .env-example .env
