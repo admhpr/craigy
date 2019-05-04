@@ -17,7 +17,7 @@ cd craigy
 ```
 ## Prerequisites
 
-[Node](https://nodejs.org/en/) ^v8.9
+[Node](https://nodejs.org/en/) ^v8.9.0
 
 install dependencies, see [dependencies](#built-with):
 
