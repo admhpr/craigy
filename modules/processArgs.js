@@ -4,7 +4,14 @@ var chalk = require('chalk');
 var log = require('../utils/logger');
 
 function usage(){
-            log.out(`
+    banner()
+    setTimeout(function(){
+        details();
+    },2000)
+}
+
+function banner(){
+             log.out(`
                     (_)            
         ___ _ __ __ _ _  __ _ _   _ 
        / __| '__/ _\` | |/ _\` | | | 
@@ -12,30 +19,36 @@ function usage(){
        \___|_|  \__,_|_|\__, |\__, |
                          __/ | __/ |
                         |___/ |___/
+                        (field guide.)
     -----------------------------------       
         `)
-
-        console.log(`
-Using Craigy couldn't be easier:
-
-Add your credientials to a .env file
-
-${chalk.bgBlack('mv .env-example .env')}
-        
-replace the values with your own
-        
-run the script:
-        
-${chalk.bgBlack('npm run start')} ${chalk.green('city')} ${chalk.yellow('price')} ${chalk.blue('imageFolder')}
-
-For full documentation see ${chalk.blue('https://github.com/harps116/craigy/blob/master/README.md')}
-        
-    `)
 }
+
+function details(){
+    console.log(`
+    Using Craigy couldn't be easier:
+    
+    Add your credientials to a .env file
+    
+    ${chalk.bgBlack('mv .env-example .env')}
+    
+    replace the values with your own,
+    
+    run the script:
+    
+    ${chalk.bgBlack('npm run start')} ${chalk.green('city')} ${chalk.yellow('price')} ${chalk.blue('imageFolder?')}
+    
+    For full documentation see ${chalk.blue('https://github.com/harps116/craigy/blob/master/README.md')}
+    
+    `);
+
+    process.exit();    
+}
+
 module.exports = function(){
     if(!process.argv[2] && !process.argv[3]){
         usage()
-        process.exit()
+        return
     }
 
     var city = String(process.argv[2]);
@@ -46,11 +59,9 @@ module.exports = function(){
         return {price, city, imageFolder}
     }
 
-    log.error(`Incorrect argument types provided`)
-
     setTimeout(function(){
+        log.error(`Incorrect argument types provided`)
         usage()
-        process.exit()
     },1000)
 
 }
