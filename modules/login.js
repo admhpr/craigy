@@ -8,8 +8,8 @@ const {
 
 
 module.exports = async function () {
-        var Nightmare = require('nightmare'),
-        nightmare = Nightmare({show: SHOW_BROWSER});
+        var Nightmare = require('nightmare');
+        var nightmare = Boolean(SHOW_BROWSER) ? Nightmare({show: true}) : Nightmare();
         
         var loggedIn;
 
