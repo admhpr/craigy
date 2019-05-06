@@ -44,7 +44,7 @@ cd /config
 ```
 
 ```bash
-mv post-exampke.json post.json
+mv post-example.json post.json
 ```
 
 Fill out the body.
