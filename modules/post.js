@@ -1,6 +1,4 @@
-
-
-
+require('dotenv').config();
 const { USER_ZIP, USER_STREET, USER_CITY, USER_TEL, USER_EMAIL} = process.env;
 var log = require('../utils/logger');
 

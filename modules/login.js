@@ -1,13 +1,18 @@
+require('dotenv').config();
+
 const {
     USER_EMAIL,
     USER_PASSWORD,
+    SHOW_BROWSER
 } = process.env
+
 
 module.exports = async function () {
         var Nightmare = require('nightmare'),
-        nightmare = Nightmare({show: true});
+        nightmare = Nightmare({show: SHOW_BROWSER});
         
         var loggedIn;
+
         console.log(`Attempting login...`)
         nightmare.goto(`https://accounts.craigslist.org/login`)
             .wait(1000)
