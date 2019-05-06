@@ -1,6 +1,6 @@
 var chalk = require('chalk');
 
-// interal modules
+// internal modules
 var log = require('../utils/logger');
 
 function usage(){
