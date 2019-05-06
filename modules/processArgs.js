@@ -7,7 +7,7 @@ function usage(){
     banner()
     setTimeout(function(){
         details();
-    },2000)
+    },1000)
 }
 
 function banner(){
@@ -24,24 +24,35 @@ function banner(){
         `)
 }
 
-function details(){
+async function details(){
+
     console.log(`
-    Using Craigy couldn't be easier:
+Using Craigy couldn't be easier:
     
     Add your credientials to a .env file
     
     ${chalk.bgBlack('mv .env-example .env')}
     
-    replace the values with your own,
-    
-    run the script:
-    
-    ${chalk.bgBlack('npm run start')} ${chalk.green('city')} ${chalk.yellow('price')} ${chalk.blue('imageFolder?')}
-    
-    For full documentation see ${chalk.blue('https://github.com/harps116/craigy/blob/master/README.md')}
-    
-    `);
+    replace the values with your own...
 
+    `);
+    
+    function info(){
+        return new Promise((resolve, reject) => {
+            setTimeout(function() {
+                console.log(`..run the script:`)
+                resolve(`  
+    ${chalk.bgBlack('npm run start')} ${chalk.green('city')} ${chalk.yellow('price')} ${chalk.blue('imageFolder?')}
+
+    For full documentation see ${chalk.blue('https://github.com/harps116/craigy/blob/master/README.md')}
+                
+                `);
+              }, 4000);
+        })
+    }
+
+    var msg = await info();
+    console.log(msg)
     process.exit();    
 }
 
