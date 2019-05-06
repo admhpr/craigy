@@ -9,7 +9,7 @@ const {
 
 module.exports = async function () {
         var Nightmare = require('nightmare');
-        var nightmare = Boolean(SHOW_BROWSER) ? Nightmare({show: true}) : Nightmare();
+        var nightmare = SHOW_BROWSER === String(true) ? Nightmare({show: true}) : Nightmare();
         
         var loggedIn;
 

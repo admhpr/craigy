@@ -5,7 +5,7 @@ function logIt (input) {
 }
 function wrap(fn){
     return function(str){
-        logIt(fn(str))
+        logIt(fn(String(str)))
     }
 }
 

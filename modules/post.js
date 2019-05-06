@@ -29,7 +29,8 @@ module.exports = async function (dto) {
             .insert('.price > .json-form-input', price)
             .insert('#GeographicArea', USER_CITY)
             .insert('#postal_code', USER_ZIP)
-            .insert('#PostingBody', body)
+            .insert('#PostingBody', `${title} for sale
+            ${body}`)
             .click('.see_my_other')
             .click('.contact_text_ok')
             .insert('label.json-form-item.text.contact_phone.variant-tel > label > input', USER_TEL)
@@ -47,7 +48,6 @@ module.exports = async function (dto) {
             .wait(3000)
             // cotinue
             .click('body > article > section > form > button')
-            //TODO:
             // publish
             .wait(2000)
             .click('form#publish_top > button.button')

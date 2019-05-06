@@ -14,6 +14,7 @@ function usage(){
                         |___/ |___/
     -----------------------------------       
         `)
+
         console.log(`
 Using Craigy couldn't be easier:
 
@@ -26,6 +27,8 @@ replace the values with your own
 run the script:
         
 ${chalk.bgBlack('npm run start')} ${chalk.green('city')} ${chalk.yellow('price')} ${chalk.blue('imageFolder')}
+
+For full documentation see ${chalk.blue('https://github.com/harps116/craigy/blob/master/README.md')}
         
     `)
 }
