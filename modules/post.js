@@ -4,16 +4,18 @@ const {
     USER_STREET,
     USER_CITY,
     USER_TEL,
-    USER_EMAIL
+    USER_EMAIL,
+    SHOW_BROWSER
 } = process.env;
+var format = require('../utils/format')
 var log = require('../utils/logger');
 
 module.exports = async function (dto) {
     var Nightmare = require('nightmare');
     require('nightmare-upload')(Nightmare);
-    var nightmare = Nightmare({
+    var nightmare = format.stringToBoolean(SHOW_BROWSER) ? Nightmare({
         show: true
-    });
+    }) : Nightmare();
     var {
         city,
         title,
@@ -21,7 +23,6 @@ module.exports = async function (dto) {
         body,
         image
     } = dto;
-    console.log(image)
     var url = `https://${city}.craigslist.org`
     log.notify('Starting post creation')
     try {
