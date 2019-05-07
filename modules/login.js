@@ -17,6 +17,7 @@ module.exports = async function () {
     var loggedIn;
 
     console.log(`Attempting login...`)
+    log.spinner()
     nightmare.goto(`https://accounts.craigslist.org/login`)
         .wait(1000)
         .insert('#inputEmailHandle', USER_EMAIL)
