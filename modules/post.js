@@ -1,18 +1,31 @@
 require('dotenv').config();
-const { USER_ZIP, USER_STREET, USER_CITY, USER_TEL, USER_EMAIL} = process.env;
+const {
+    USER_ZIP,
+    USER_STREET,
+    USER_CITY,
+    USER_TEL,
+    USER_EMAIL
+} = process.env;
 var log = require('../utils/logger');
 
 module.exports = async function (dto) {
-        var Nightmare = require('nightmare');
-        require('nightmare-upload')(Nightmare);
-        var nightmare = Nightmare({show: true});
-        
-        var {city, title, price, body, image} = dto;
-        console.log(image)
-        var url = `https://${city}.craigslist.org`
-        log.notify('Starting post creation')
-        try{
-            await nightmare.goto(url)
+    var Nightmare = require('nightmare');
+    require('nightmare-upload')(Nightmare);
+    var nightmare = Nightmare({
+        show: true
+    });
+    var {
+        city,
+        title,
+        price,
+        body,
+        image
+    } = dto;
+    console.log(image)
+    var url = `https://${city}.craigslist.org`
+    log.notify('Starting post creation')
+    try {
+        await nightmare.goto(url)
             .wait(2000)
             // create post
             .click('#postlks #post')
@@ -51,9 +64,9 @@ module.exports = async function (dto) {
             // publish
             .wait(2000)
             .click('form#publish_top > button.button')
-            log.out('New post has been created')
-            await nightmare.end()
-        }catch(e){
-            log.error(e.message)
-        }
+        log.out('New post has been created')
+        await nightmare.end()
+    } catch (e) {
+        log.error(e.message)
     }
+}
