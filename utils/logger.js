@@ -10,18 +10,23 @@ function wrap(fn) {
     }
 }
 
-function spinner() {
+var spinner = (function () {
     var P = ["\\", "|", "/", "-"];
     var x = 0;
     return setInterval(function () {
         process.stdout.write("\r" + P[x++]);
         x &= 3;
     }, 250);
+})();
+
+function stopSpinner(interval) {
+    clearInterval(interval)
 }
 
 module.exports = {
     out: wrap(chalk.green),
     error: wrap(chalk.red),
     notify: wrap(chalk.blue),
-    spinner
+    spinner,
+    stopSpinner,
 }

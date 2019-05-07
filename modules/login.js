@@ -4,8 +4,10 @@ const {
     USER_EMAIL,
     USER_PASSWORD,
     SHOW_BROWSER
-} = process.env
-var format = require('../utils/format')
+} = process.env;
+
+var format = require('../utils/format');
+var log = require('../utils/logger');
 
 
 module.exports = async function () {
@@ -17,7 +19,7 @@ module.exports = async function () {
     var loggedIn;
 
     console.log(`Attempting login...`)
-    log.spinner()
+    log.spinner
     nightmare.goto(`https://accounts.craigslist.org/login`)
         .wait(1000)
         .insert('#inputEmailHandle', USER_EMAIL)
@@ -29,5 +31,6 @@ module.exports = async function () {
     loggedIn = await nightmare.then(function (result) {
         return result === 'craigslist account'
     })
+    log.stopSpinner(log.spinner)
     return loggedIn
 }
