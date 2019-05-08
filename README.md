@@ -15,6 +15,7 @@ change into the cloned directory:
 ```bash
 cd craigy
 ```
+
 ## Prerequisites
 
 [Node](https://nodejs.org/en/) ^v8.9.0
@@ -34,6 +35,7 @@ Move the .env-example to a .env file:
 ```bash
 mv .env-example .env
 ```
+
 Add your credientials
 
 Setup your post body:
@@ -69,18 +71,19 @@ npm run start <city> <price> <imageFolder?>
 
 > `image folder` is optional
 
-
 ## Built With
 
-* [chalk](https://www.npmjs.com/package/chalk)
-* [dotenv](https://www.npmjs.com/package/dotenv)
-* [nightmare](https://www.npmjs.com/package/nightmare)
-* [nightmare-upload](https://www.npmjs.com/package/nightmare-upload)
+- [chalk](https://www.npmjs.com/package/chalk)
+- [dotenv](https://www.npmjs.com/package/dotenv)
+- [nightmare](https://www.npmjs.com/package/nightmare)
+- [nightmare-upload](https://www.npmjs.com/package/nightmare-upload)
+
+## Debugging
+
+## Issues
+
+## Contributing
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-
-
-
