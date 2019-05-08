@@ -1,16 +1,17 @@
-var chalk = require('chalk')
+var chalk = require("chalk");
 
 // internal modules
-var log = require('../utils/logger')
+var log = require("../utils/logger");
 
-function usage () {
-  banner()
-  setTimeout(function () {
-    details()
-  }, 1000)
+function usage() {
+  banner();
+  setTimeout(function() {
+    details();
+  }, 1000);
 }
 
-function banner () {
+function banner() {
+  /* eslint-disable*/
   log.out(`
                     (_)            
         ___ _ __ __ _ _  __ _ _   _ 
@@ -21,61 +22,65 @@ function banner () {
                         |___/ |___/
                         (field guide.)
     -----------------------------------       
-        `)
+		`);
+  /* eslint-enable */
 }
 
-async function details () {
+async function details() {
   console.log(`
 Using Craigy couldn't be easier:
     
     Add your credientials to a .env file
     
-    ${chalk.bgBlack('mv .env-example .env')}
+    ${chalk.bgBlack("mv .env-example .env")}
     
     replace the values with your own...
 
-    `)
+    `);
 
-  function info () {
-    return new Promise((resolve, reject) => {
-      setTimeout(function () {
-        console.log(`..run the script:`)
+  function info() {
+    return new Promise(resolve => {
+      setTimeout(function() {
+        console.log("..run the script:");
         resolve(`  
     ${chalk.bgBlack(
-      'npm run start'
-    )} ${chalk.green('city')} ${chalk.yellow('price')} ${chalk.blue('imageFolder?')}
+      "npm run start"
+    )} ${chalk.green("city")} ${chalk.yellow("price")} ${chalk.blue("imageFolder?")}
 
     For full documentation see ${chalk.blue(
-      'https://github.com/harps116/craigy/blob/master/README.md'
-    )}
-                
-                `)
-      }, 4000)
-    })
+      "https://github.com/harps116/craigy/blob/master/README.md"
+    )}    
+                `);
+      }, 4000);
+    });
   }
 
-  var msg = await info()
-  console.log(msg)
-  process.exit()
+  var msg = await info();
+  console.log(msg);
+  process.exit();
 }
 
-module.exports = function () {
+module.exports = function() {
   if (!process.argv[2] && !process.argv[3]) {
-    usage()
-    return
+    usage();
+    return;
   }
 
-  var city = String(process.argv[2])
-  var price = parseFloat(Math.round(process.argv[3] * 100) / 100)
+  var city = String(process.argv[2]);
+  var price = parseFloat(Math.round(process.argv[3] * 100) / 100);
   var imageFolder =
-    typeof process.argv[4] !== 'undefined' ? process.argv[4] : false
+    typeof process.argv[4] !== "undefined" ? process.argv[4] : false;
 
   if (city.length && !Number.isNaN(price)) {
-    return { price, city, imageFolder }
+    return {
+      price,
+      city,
+      imageFolder
+    };
   }
 
-  setTimeout(function () {
-    log.error(`Incorrect argument types provided`)
-    usage()
-  }, 1000)
-}
+  setTimeout(function() {
+    log.error("Incorrect argument types provided");
+    usage();
+  }, 1000);
+};
