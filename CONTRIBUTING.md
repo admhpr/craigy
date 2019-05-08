@@ -54,7 +54,7 @@ module.exports = functionName;
 
 ### Specs Styleguide
 
-- Include thoughtfully-worded, well-structured [Mocha](https://jasmine.github.io/) specs in the `./test` folder.
+- Include thoughtfully-worded, well-structured [Mocha](https://mochajs.org/) specs in the `./src/test` folder.
 - Treat `describe` as a noun or situation.
 - Treat `it` as a statement about state or how an operation changes state.
 
