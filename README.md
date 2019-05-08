@@ -88,7 +88,7 @@ SHOW_BROWSER=true
 
 ```
 
-You can also add a stack trace by running:
+You can also enable verbose logging by running:
 
 ```bash
 DEBUG=nightmare* npm run start <city> <price> <imageFolder?>
