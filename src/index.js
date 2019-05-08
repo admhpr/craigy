@@ -3,7 +3,7 @@
 // libs
 var fs = require("fs");
 var Nightmare = require("nightmare"),
-    nightmare = Nightmare();
+  nightmare = Nightmare();
 
 // setup
 require("dotenv").config();
@@ -20,41 +20,39 @@ var processArgs = require("./modules/processArgs");
 run().catch(console.error);
 
 async function run() {
-    var args = processArgs();
-    var loggedIn = await checkLogin();
-    switch (loggedIn) {
-        case true:
-            log.out("Login successful");
-            await nightmare.end();
-            main(args);
-            break;
-        default:
-            log.notify("Not logged in, initiating login procedure");
-            loggedIn = await login();
-            await nightmare.end();
-            nightmare = null;
-            loggedIn ? main(args) : log.error("Unable to login please check credientials in .env file");
-    }
+  var args = processArgs();
+  var loggedIn = await checkLogin();
+  switch (loggedIn) {
+    case true:
+      log.out("Login successful");
+      await nightmare.end();
+      main(args);
+      break;
+    default:
+      log.notify("Not logged in, initiating login procedure");
+      loggedIn = await login();
+      await nightmare.end();
+      nightmare = null;
+      loggedIn
+        ? main(args)
+        : log.error("Unable to login please check credientials in .env file");
+  }
 }
 
-async function main({
-    city,
-    price,
-    imageFolder = false
-}) {
-    log.out("Login successful, Running main function..");
-    var postValues = JSON.parse(fs.readFileSync("./config/post.json"));
-    var files = await imageList(imageFolder);
-    for (let fileList of files()) {
-        fileList.forEach(async function (fileInfo) {
-            await post({
-                ...fileInfo,
-                ...{
-                    city,
-                    price
-                },
-                ...postValues
-            });
-        });
-    }
+async function main({ city, price, imageFolder = false }) {
+  log.out("Login successful, Running main function..");
+  var postValues = JSON.parse(fs.readFileSync("./config/post.json"));
+  var files = await imageList(imageFolder);
+  for (let fileList of files()) {
+    fileList.forEach(async function(fileInfo) {
+      await post({
+        ...fileInfo,
+        ...{
+          city,
+          price
+        },
+        ...postValues
+      });
+    });
+  }
 }
