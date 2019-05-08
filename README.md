@@ -65,7 +65,7 @@ If you add a folder to `~/config/images` `craigy` will iterate through each fold
 
 ### Usage
 
-```
+```bash
 npm run start <city> <price> <imageFolder?>
 ```
 
@@ -79,6 +79,20 @@ npm run start <city> <price> <imageFolder?>
 - [nightmare-upload](https://www.npmjs.com/package/nightmare-upload)
 
 ## Debugging
+
+To see the what the program is doing to the browser, open your `.env` file and set SHOW_BROWSER to true:
+
+```env
+...
+SHOW_BROWSER=true
+
+```
+
+You can also add a stack trace by running:
+
+```bash
+DEBUG=nightmare* npm run start <city> <price> <imageFolder?>
+```
 
 ## Issues
 
