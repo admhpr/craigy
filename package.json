@@ -9,6 +9,12 @@
     "format": "prettier --write 'src/**/*.js'",
     "test": "mocha"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test",
+      "pre-push": "npm run format && npm run lint"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/harps116/craigy.git"
@@ -33,6 +39,7 @@
   "devDependencies": {
     "eslint": "^5.16.0",
     "eslint-plugin-prettier": "^3.0.1",
+    "husky": "^2.2.0",
     "mocha": "^6.1.4",
     "prettier": "^1.17.0"
   }

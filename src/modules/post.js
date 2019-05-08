@@ -10,15 +10,21 @@ const {
 var format = require("../utils/format");
 var log = require("../utils/logger");
 
-module.exports = async function(dto) {
+module.exports = async function (dto) {
   var Nightmare = require("nightmare");
   require("nightmare-upload")(Nightmare);
-  var nightmare = format.stringToBoolean(SHOW_BROWSER)
-    ? Nightmare({
-        show: true
-      })
-    : Nightmare();
-  var { city, title, price, body, image } = dto;
+  var nightmare = format.stringToBoolean(SHOW_BROWSER) ?
+    Nightmare({
+      show: true
+    }) :
+    Nightmare();
+  var {
+    city,
+    title,
+    price,
+    body,
+    image
+  } = dto;
   var url = `https://${city}.craigslist.org`;
   log.notify("Starting post creation");
   try {

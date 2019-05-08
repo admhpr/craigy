@@ -17,6 +17,7 @@ module.exports = async function() {
 
   console.log("Attempting login...");
   log.spinner;
+
   nightmare
     .goto("https://accounts.craigslist.org/login")
     .wait(1000)
@@ -26,9 +27,12 @@ module.exports = async function() {
     .wait(4000)
     .title()
     .end();
+
   loggedIn = await nightmare.then(function(result) {
     return result === "craigslist account";
   });
+
   log.stopSpinner(log.spinner);
+
   return loggedIn;
 };
