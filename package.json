@@ -1,11 +1,11 @@
 {
   "name": "craigy",
   "version": "1.0.0",
-  "description": "A program to post items for sale to Craislist",
+  "description": "A program to post items for sale to Craignpmslist",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "mocha --recursive --timeout 10000"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,8 @@
     "nightmare-upload": "^0.1.1"
   },
   "devDependencies": {
-    "mocha": "^6.1.4"
+    "eslint": "^5.16.0",
+    "mocha": "^6.1.4",
+    "prettier-standard": "^9.1.1"
   }
 }

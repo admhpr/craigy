@@ -1,0 +1,4 @@
+./src/test
+--recursive
+--timeout 10000
+--exit
