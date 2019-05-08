@@ -37,8 +37,6 @@ These are mostly guidelines, not rules. Use your best judgment, and feel free to
 
 ### JavaScript Styleguide
 
-All JavaScript must adhere to [JavaScript Standard Style](https://standardjs.com/).
-
 ```js
 // Use this:
 module.exports = function() {
