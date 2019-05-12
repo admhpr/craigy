@@ -80,7 +80,7 @@ npm run start <city> <price> <imageFolder?>
 
 ## Debugging
 
-To see the what the program is doing to the browser, open your `.env` file and set SHOW_BROWSER to true:
+To see the what the program is doing to the browser, open your `.env` file and set `SHOW_BROWSER` to true:
 
 ```env
 ...
