@@ -23,18 +23,6 @@ These are mostly guidelines, not rules. Use your best judgment, and feel free to
 
 [Additional Notes](#additional-notes)
 
-##
-
-### Reporting Bugs
-
-### Suggesting Enhancements
-
-### Your First Code Contribution
-
-### Pull Requests
-
-## Styleguides
-
 ### JavaScript Styleguide
 
 ```js
@@ -70,3 +58,15 @@ describe 'a dog', ->
 ### Documentation Styleguide
 
 - Use [Markdown](https://daringfireball.net/projects/markdown).
+
+<!-- ##
+
+### Reporting Bugs
+
+### Suggesting Enhancements
+
+### Your First Code Contribution
+
+### Pull Requests
+
+## Styleguides -->
