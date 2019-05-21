@@ -1,6 +1,6 @@
 # Craigy
 
-A program to bulk post items for sale to Craigslist..
+A program to bulk post items for sale to [Craigslist](https://www.craigslist.org)..
 
 ## Getting Started
 
@@ -98,7 +98,7 @@ DEBUG=nightmare* npm run start <city> <price> <imageFolder?>
 
 ## Contributing
 
-Contributing is encoruaged - see the [CONTRIBUTING](CONTRIBUTING.md) file for details
+Contributing is encouraged - see the [CONTRIBUTING](CONTRIBUTING.md) file for details
 
 ## License
 
