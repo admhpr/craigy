@@ -31,15 +31,15 @@
   "dependencies": {
     "chalk": "^2.4.2",
     "dotenv": "^7.0.0",
-    "nightmare": "^3.0.1",
+    "nightmare": "^3.0.2",
     "nightmare-upload": "^0.1.1",
-    "tar": "^4.4.8"
+    "tar": "^4.4.10"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
-    "eslint-plugin-prettier": "^3.0.1",
-    "husky": "^2.2.0",
-    "mocha": "^6.1.4",
-    "prettier": "^1.17.0"
+    "eslint-plugin-prettier": "^3.1.0",
+    "husky": "^2.7.0",
+    "mocha": "^6.2.0",
+    "prettier": "^1.18.2"
   }
 }
